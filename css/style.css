@@ -32,12 +32,11 @@ header {
     align-items: center;
 }
 
-/* ruleset for the nav_links class - make the items wrap up to fit the page horizontally */
+/* ruleset for the nav_links class - make the items flow vertically using flex */
 
-.nav_link {
-    /* display: flex; */
-    /* flex-direction: row; */
-    /* flex-wrap: wrap; */
+.nav_links {
+    display: flex;
+    flex-direction: column;
 }
 
 /* Styling the links so they don't change color once visited--this ensures no errors with color contrast validations */
@@ -64,6 +63,7 @@ header {
 /* Creating the flex display so the cards are aligned internally */
 .card {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     flex-basis: 450px;
 }
@@ -137,5 +137,34 @@ header {
     }
 
     /* Changing the navigation styling to reflect the example */
+    nav {
+        width: 100%;
+    }
+    .nav_links {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
 
+    /* Changing the .pricing class styling so the cards are bottom-aligned and fit on the printed page at the same time*/
+    .pricing {
+        align-items: end;
+        flex-wrap: nowrap;
+    }
+
+    /* Changing the styling of the cards to reflect the example */
+    .card {
+        border: 2px solid #45ADDD;
+        flex-basis: 325px;
+    }
+
+    /* Hiding the gallery */
+    .gallery, #gallery {
+        display: none;
+    }
+
+    /* Adding the fire emoji to the print */
+    .card li:nth-of-type(2)::after {
+        content: '\01F44D'
+    }
 }
