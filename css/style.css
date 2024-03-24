@@ -1,0 +1,141 @@
+/* Style Sheet for Homework 5 */
+
+/* Creating the animation for the logo */
+
+header img {
+    animation: logo-expand 5s;
+}
+
+/* keyframe ruleset for animation - going from 0 to 100% opacity, and from 25 to 475 pixels */
+
+@keyframes logo-expand {
+    from {width: 25px;
+        opacity: 0;}
+    to {width: 475px;
+        opacity: 1;}
+}
+
+/* body ruleset - Poppins font with serif backup; background image of 'concrete_seamless.png'; and a backup background color of #f1f1f1 */
+
+body {
+    font-family: "Poppins", serif;
+    background-image: url('../images/concrete_seamless.png');
+    background-color: #f1f1f1;
+}
+
+/* header ruleset for the flex layout - centering the header items and aligning them vertically */
+
+header {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* ruleset for the nav_links class - make the items wrap up to fit the page horizontally */
+
+.nav_link {
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* flex-wrap: wrap; */
+}
+
+/* Styling the links so they don't change color once visited--this ensures no errors with color contrast validations */
+
+ a:visited {
+    color: #0000ff;
+}
+
+/* ruleset for item card headers - colors and border stylings */
+
+.card > header {
+    background-color: #288088;
+    border: 2px solid #45ADAD;
+    padding: 20px 0px;
+    border-radius: 50px 50px 0px 0px;
+}
+/* ensuring the whole card has the correct border radius */
+.card {
+    border-radius: 50px 50px 0px 0px;
+}
+
+/* creating the ruleset for the cards themselves - their css and flex stylings */
+
+/* Creating the flex display so the cards are aligned internally */
+.card {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 450px;
+}
+
+/* Creating the flex display so the cards are aligned vertically properly */
+
+.pricing {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+/* ruleset for the image styling */
+
+.gallery img{
+    border: 10px solid #50C7C7;
+    margin: 10px;
+    width: 300px;
+}
+
+/* Ensuring the images wrap around properly depending on screen size */
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: stretch;
+    justify-content: center;
+}
+
+
+/* Styling for non-mobile screens */
+
+
+@media screen and (min-width: 900px) {
+
+    /* Styling the header area so that it's aligned to the sides and not centered anymore */
+    header, .nav_links {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    /* Styling the cards so they fit properly on these screens */
+    .card {
+        flex-basis: 275px;
+    }
+
+    /* Spacing the cards vertically to match the example */
+    .pricing {
+        align-items: center;
+    }
+}
+
+/* Creating a media query if the user has prefered reduce motion settings enabled */
+
+@media screen and (prefers-reduced-motion: reduce) {
+    header img {
+        animation: none;
+    }
+}
+
+/* Styling for if the user is printing the webpage */
+
+@media print {
+
+    /* Changing the default fonts and removing the background image */
+    body {
+        font-family: 'Arial', 'Helvetica';
+        background-image: none;
+    }
+
+    /* Changing the navigation styling to reflect the example */
+
+}
